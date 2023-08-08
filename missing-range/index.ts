@@ -2,7 +2,7 @@
  * Given a sorted integer array where the range of elements are [0, 99] inclusive, return its
  * missing ranges.
  *
- * @param {number[]} nums - The sorted integer array.
+ * @param {number[]} array - The sorted integer array.
  * @returns {string[]} An array of strings representing the missing ranges.
  *
  * Example:
@@ -17,11 +17,8 @@
  * A: Return an empty list, which means no range is missing.
  */
 
-import { getInput, rl } from "./utils";
-
-let numberList: number[] = [0, 5]; //change the list for your test cases
-
-const listMissingRanges = (array: number[]) => {
+export const listMissingRanges = (array: number[]) => {
+  if (array.length === 0) return ["0->99"];
   let result: string[] = [];
   const newArray = array.sort((a, b) => a - b);
 
@@ -51,22 +48,10 @@ const listMissingRanges = (array: number[]) => {
         result.push(output);
       }
     });
-    console.log(result);
+    return result;
   } else {
     console.log(
       "make sure your input array has numbers range 0 - 99 inclusive",
     );
-    listMissingRanges(numberList);
   }
 };
-
-async function main() {
-  const userInput = await getInput(
-    "Enter some numbers separated by commas range 0 - 99 inclusive: ",
-  );
-  numberList = userInput.split(",").map((item) => parseInt(item));
-  rl.close();
-  listMissingRanges(numberList);
-}
-
-main();
