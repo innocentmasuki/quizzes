@@ -36,6 +36,9 @@ const listMissingRanges = (array: number[]) => {
     if (newArray[newArray.length - 1] !== 99) {
       newArray.push(100);
     }
+    if (newArray[0] !== 0) {
+      newArray.unshift(-1);
+    }
 
     newArray.forEach((item, index) => {
       const difference = array[index + 1] - item;
