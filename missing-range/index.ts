@@ -21,8 +21,6 @@ export const listMissingRanges = (array: number[]) => {
   if (array.length === 0) return ["0->99"];
   let result: string[] = [];
   const newArray = array.sort((a, b) => a - b);
-
-  console.log(newArray);
   if (
     newArray.length > 0 &&
     newArray[0] <= 99 &&
@@ -49,9 +47,5 @@ export const listMissingRanges = (array: number[]) => {
       }
     });
     return result;
-  } else {
-    console.log(
-      "make sure your input array has numbers range 0 - 99 inclusive",
-    );
   }
 };
